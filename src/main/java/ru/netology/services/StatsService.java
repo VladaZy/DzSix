@@ -1,23 +1,23 @@
 package ru.netology.services;
 
 public class StatsService {
-    public int sumSales(int[] sales) {
-        int totalSale = 0;
-        for (int sale : sales) {
+    public long sumSales(long[] sales) {
+        long totalSale = 0;
+        for (long sale : sales) {
             totalSale += sale;
         }
         return totalSale;
 
     }
 
-    public int averageSales(int[] sales) {
+    public long averageSales(long[] sales) {
         return sumSales(sales) / sales.length;
     }
 
-    public int calcMonthMaxSale(int[] sales) {
+    public int calcMonthMaxSale(long[] sales) {
         int monthMaxSale = 0;
         for (int i = 0; i < sales.length; i++) {
-            if (sales[i] >= sales[monthMaxSale]) {
+            if (sales[i] >= sales[(int) monthMaxSale]) {
                 monthMaxSale = i;
 
             }
@@ -25,7 +25,7 @@ public class StatsService {
         return monthMaxSale + 1;
     }
 
-    public int calcMonthMinSale(int[] sales) {
+    public int calcMonthMinSale(long[] sales) {
         int monthMinSale = 0;
         for (int i = 0; i < sales.length; i++) {
             if (sales[i] <= sales[monthMinSale]) {
@@ -36,10 +36,10 @@ public class StatsService {
         return monthMinSale + 1;
     }
 
-    public int salesMonthsBelowAverage(int[] sales) {
+    public int salesMonthsBelowAverage(long[] sales) {
         int counter = 0;
-        int average = averageSales(sales);
-        for (int sale : sales) {
+        long average = averageSales(sales);
+        for (long sale : sales) {
             if (sale < average) {
                 counter++;
             }
@@ -49,10 +49,10 @@ public class StatsService {
 
     }
 
-    public int salesMonthsAboveAverage(int[] sales) {
+    public int salesMonthsAboveAverage(long[] sales) {
         int counter = 0;
-        int average = averageSales(sales);
-        for (int sale : sales) {
+        long average = averageSales(sales);
+        for (long sale : sales) {
             if (sale > average) {
                 counter++;
             }
